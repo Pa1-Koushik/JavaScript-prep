@@ -185,17 +185,58 @@
 
 //error handling using try,catch
 
-const url = "https://api.github.s/Pa1-Koushik"
+// const url = "https://api.github.s/Pa1-Koushik"
 
 
-async function myapi(){
-    try{
-        const data = await fetch(url)
-        const final = await data.json()
-        console.log(final)
-    }
-   catch(err){
-    console.log(err)
-   }
-}
+// async function myapi(){
+//     try{
+//         const data = await fetch(url)
+//         const final = await data.json()
+//         console.log(final)
+//     }
+//    catch(err){
+//     console.log(err)
+//    }
+// }
 // myapi().catch((err)=>console.log(err)) another way to handle errors
+
+function time() {
+    return new Date().toLocaleTimeString();
+}
+
+function promise1() {
+    return new Promise(resolve => {
+        setTimeout(() => resolve("P1 done at " + time()), 3000);
+    });
+}
+
+function promise2() {
+    return new Promise(resolve => {
+        setTimeout(() => resolve("P2 done at " + time()), 10000);
+    });
+}
+
+// Sequential
+async function sequential() {
+    console.log("Sequential start:", time());
+
+    const r1 = await promise1();
+    console.log(r1);
+
+    const r2 = await promise2();
+    console.log(r2);
+
+    console.log("Sequential end:", time());
+}
+
+async function parallel() {
+    console.log("Parallel start:", time());
+
+    const results = await Promise.all([promise1(), promise2()]);
+    console.log(results);
+
+    console.log("Parallel end:", time());
+}
+
+// sequential();
+parallel();
