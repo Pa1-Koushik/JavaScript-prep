@@ -133,3 +133,23 @@ const res = num.forEach(n=>console.log(n))
 //     console.log(ind + ":" +val)
 // }
 // )
+
+//array and object destructuring
+
+// const users = [
+//     { name: "John", age: 25 },
+//     { name: "Kumar", age: 30 }
+// ];
+
+// const [,{name:fullname}] = users;
+// console.log(fullname)
+
+
+// const company = {
+//     cname:'mg',
+//     locations:["india","usa","australia"]
+// }
+
+// const {locations:[,loc]} = company
+// console.log(loc)
+
