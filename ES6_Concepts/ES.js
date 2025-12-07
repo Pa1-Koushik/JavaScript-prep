@@ -100,9 +100,6 @@
 
 // console.log(user)
 
-
-
-
 // const name = "Pavan";
 // const age = 24;
 
